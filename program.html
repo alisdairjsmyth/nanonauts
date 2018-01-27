@@ -22,6 +22,9 @@
   var nanonautImage = new Image()
   nanonautImage.src = 'nanonaut.png'
 
+  var backgroundImage = new Image()
+  backgroundImage.src = 'background.png'
+
   var nanonautX = 50
   var nanonautY = 40
 
@@ -49,6 +52,9 @@
     // Draw the sky
     c.fillStyle = 'LightSkyBlue'
     c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40)
+
+    // Draw the background
+    c.drawImage(backgroundImage, 0, -210)
 
     //Draw the ground
     c.fillStyle = 'ForestGreen'
