@@ -5,11 +5,14 @@
 </head>
 <body>
   <script>
-  var value1 = 5
-  var value2 = value1 +1
-  value1 = 4
-  console.log(value1)
-  console.log(value2)
+  var canvas = document.createElement('canvas')
+  canvas.width = 800
+  canvas.height = 600
+  document.body.appendChild(canvas)
+  var c = canvas.getContext('2d')
+  c.fillStyle = 'green'
+  c.fillRect(10,10,30,30)
+  document.body.appendChild(canvas)
   </script>
 </body>
 </html>
