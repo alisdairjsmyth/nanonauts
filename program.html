@@ -30,11 +30,17 @@
   var nanonautY = 40
   var nanonautYSpeed = 0
 
+  window.addEventListener('keydown', onKeyDown)
   window.addEventListener('load', start)
 
   function start() {
     window.requestAnimationFrame(mainLoop)
   }
+
+  function onKeyDown(event) {
+    console.log(event.keyCode)
+  }
+
   //main loop
   function mainLoop() {
     update()
