@@ -38,7 +38,9 @@
   }
 
   function onKeyDown(event) {
-    console.log(event.keyCode)
+    if (event.keyCode === 32) {
+      console.log("Space key pressed")
+    }
   }
 
   //main loop
