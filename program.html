@@ -12,6 +12,7 @@
   var NANONAUT_HEIGHT = 229
   var GROUND_Y = 540
   var NANONAUT_Y_ACCELERATION = 1
+  var SPACE_KEYCODE = 32
 
   //setup
   var canvas = document.createElement('canvas')
@@ -30,6 +31,8 @@
   var nanonautY = 40
   var nanonautYSpeed = 0
 
+  var spaceKeyIsPressed = false
+
   window.addEventListener('keydown', onKeyDown)
   window.addEventListener('load', start)
 
@@ -38,8 +41,8 @@
   }
 
   function onKeyDown(event) {
-    if (event.keyCode === 32) {
-      console.log("Space key pressed")
+    if (event.keyCode === SPACE_KEYCODE) {
+      spaceKeyIsPressed = true
     }
   }
 
