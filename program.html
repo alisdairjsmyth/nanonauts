@@ -33,6 +33,9 @@
   var backgroundImage = new Image()
   backgroundImage.src = 'background.png'
 
+  var bush1Image = new Image()
+  bush1Image.src = 'bush1.png'
+
   var nanonautX = CANVAS_WIDTH / 2
   var nanonautY = GROUND_Y - NANONAUT_HEIGHT
   var nanonautYSpeed = 0
@@ -112,6 +115,10 @@
     var backgroundX = - (cameraX % BACKGROUND_WIDTH)
     c.drawImage(backgroundImage, backgroundX, -210)
     c.drawImage(backgroundImage, backgroundX + BACKGROUND_WIDTH, -210)
+
+    // Draw the bushes
+    c.drawImage(bush1Image, 550, GROUND_Y - 100)
+    c.drawImage(bush1Image, 750, GROUND_Y - 90)
 
     //Draw the ground
     c.fillStyle = 'ForestGreen'
