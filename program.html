@@ -15,6 +15,7 @@
   var NANONAUT_X_SPEED = 5
   var NANONAUT_JUMP_SPEED = 20
   var SPACE_KEYCODE = 32
+  var BACKGROUND_WIDTH = 1000
 
   //setup
   var canvas = document.createElement('canvas')
@@ -29,8 +30,8 @@
   var backgroundImage = new Image()
   backgroundImage.src = 'background.png'
 
-  var nanonautX = 50
-  var nanonautY = 40
+  var nanonautX = CANVAS_WIDTH / 2
+  var nanonautY = GROUND_Y - NANONAUT_HEIGHT
   var nanonautYSpeed = 0
   var nanonautIsInTheAir = false
 
@@ -95,7 +96,9 @@
     c.fillRect(0, 0, CANVAS_WIDTH, GROUND_Y - 40)
 
     // Draw the background
-    c.drawImage(backgroundImage, 0 - cameraX, -210)
+    var backgroundX = - (cameraX % BACKGROUND_WIDTH)
+    c.drawImage(backgroundImage, backgroundX, -210)
+    c.drawImage(backgroundImage, backgroundX + BACKGROUND_WIDTH, -210)
 
     //Draw the ground
     c.fillStyle = 'ForestGreen'
