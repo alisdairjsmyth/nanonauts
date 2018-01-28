@@ -51,18 +51,7 @@
   var cameraX = 0
   var cameraY = 0
 
-  var bushData = [
-    {
-      x: 550,
-      y: 100,
-      image: bush1Image
-    },
-    {
-      x: 750,
-      y: 90,
-      image: bush2Image
-    }
-  ]
+  var bushData = generateBushes()
 
   window.addEventListener('keydown', onKeyDown)
   window.addEventListener('keyup', onKeyUp)
@@ -70,6 +59,20 @@
 
   function start() {
     window.requestAnimationFrame(mainLoop)
+  }
+
+  function generateBushes() {
+    var generatedBushData = []
+    var bushX = 0
+    for (var i=0; i<10; i++) {
+      generatedBushData.push({
+        x: bushX,
+        y: 80 + Math.random() * 20,
+        image: bush1Image
+      })
+      bushX += 150 + Math.random() * 200
+    }
+    return generatedBushData
   }
 
   function onKeyDown(event) {
@@ -117,8 +120,16 @@
         nanonautFrameNr = 0
       }
     }
+
     // Update camera
     cameraX = nanonautX - 150
+
+    // Update bushes
+    for (var i=0; i<bushData.length; i++){
+      if ((bushData[i].x - cameraX) < -CANVAS_WIDTH) {
+        bushData[i].x += (2 * CANVAS_WIDTH) + 150
+      }
+    }
   }
 
   //drawing
