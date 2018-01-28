@@ -18,6 +18,7 @@
   var BACKGROUND_WIDTH = 1000
   var NANONAUT_NR_FRAMES_PER_ROW = 5
   var NANONAUT_NR_ANIMATION_FRAMES = 7
+  var NANONAUT_ANIMATION_SPEED = 3
 
   //setup
   var canvas = document.createElement('canvas')
@@ -39,7 +40,7 @@
 
   var spaceKeyIsPressed = false
   var nanonautFrameNr = 0
-  var nanonautAnimationCounter = 0
+  var gameFrameCounter = 0
 
   var cameraX = 0
   var cameraY = 0
@@ -90,13 +91,12 @@
     }
 
     // Update Animation
-    nanonautAnimationCounter = nanonautAnimationCounter + 1
-    if (nanonautAnimationCounter >= 3) {
+    gameFrameCounter = gameFrameCounter + 1
+    if ((gameFrameCounter % NANONAUT_ANIMATION_SPEED) === 0) {
       nanonautFrameNr = nanonautFrameNr + 1
       if (nanonautFrameNr >= NANONAUT_NR_ANIMATION_FRAMES) {
         nanonautFrameNr = 0
       }
-      nanonautAnimationCounter = 0
     }
     // Update camera
     cameraX = nanonautX - 150
