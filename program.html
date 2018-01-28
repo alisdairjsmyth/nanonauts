@@ -31,6 +31,7 @@
   var nanonautX = 50
   var nanonautY = 40
   var nanonautYSpeed = 0
+  var nanonautIsInTheAir = false
 
   var spaceKeyIsPressed = false
 
@@ -65,8 +66,9 @@
 
   //updating
   function update() {
-    if (spaceKeyIsPressed) {
+    if (spaceKeyIsPressed && !nanonautIsInTheAir) {
       nanonautYSpeed = -NANONAUT_JUMP_SPEED
+      nanonautIsInTheAir = true
     }
     // Update nanonaut
     nanonautY = nanonautY + nanonautYSpeed
@@ -74,6 +76,7 @@
     if (nanonautY > (GROUND_Y - NANONAUT_HEIGHT)) {
       nanonautY = GROUND_Y - NANONAUT_HEIGHT
       nanonautYSpeed = 0
+      nanonautIsInTheAir = false
     }
   }
 
