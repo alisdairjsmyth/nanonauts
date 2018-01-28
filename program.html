@@ -39,6 +39,7 @@
 
   var spaceKeyIsPressed = false
   var nanonautFrameNr = 0
+  var nanonautAnimationCounter = 0
 
   var cameraX = 0
   var cameraY = 0
@@ -89,9 +90,13 @@
     }
 
     // Update Animation
-    nanonautFrameNr = nanonautFrameNr + 1
-    if (nanonautFrameNr >= NANONAUT_NR_ANIMATION_FRAMES) {
-      nanonautFrameNr = 0
+    nanonautAnimationCounter = nanonautAnimationCounter + 1
+    if (nanonautAnimationCounter >= 3) {
+      nanonautFrameNr = nanonautFrameNr + 1
+      if (nanonautFrameNr >= NANONAUT_NR_ANIMATION_FRAMES) {
+        nanonautFrameNr = 0
+      }
+      nanonautAnimationCounter = 0
     }
     // Update camera
     cameraX = nanonautX - 150
