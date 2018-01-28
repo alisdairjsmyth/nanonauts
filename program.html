@@ -36,6 +36,9 @@
   var bush1Image = new Image()
   bush1Image.src = 'bush1.png'
 
+  var bush2Image = new Image()
+  bush2Image.src = 'bush2.png'
+
   var nanonautX = CANVAS_WIDTH / 2
   var nanonautY = GROUND_Y - NANONAUT_HEIGHT
   var nanonautYSpeed = 0
@@ -48,8 +51,18 @@
   var cameraX = 0
   var cameraY = 0
 
-  var bushXCoordinates = [ 550, 750, 1000, 1200 ]
-  var bushYCoordinates = [ 100, 80, 90, 85 ]
+  var bushData = [
+    {
+      x: 550,
+      y: 100,
+      image: bush1Image
+    },
+    {
+      x: 750,
+      y: 90,
+      image: bush2Image
+    }
+  ]
 
   window.addEventListener('keydown', onKeyDown)
   window.addEventListener('keyup', onKeyUp)
@@ -124,8 +137,8 @@
     c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40)
 
     // Draw the bushes
-    for (var i=0; i<bushXCoordinates.length; i++) {
-      c.drawImage(bush1Image, bushXCoordinates[i] - cameraX, GROUND_Y - bushYCoordinates[i] - cameraY)
+    for (var i=0; i<bushData.length; i++) {
+      c.drawImage(bushData[i].image, bushData[i].x - cameraX, GROUND_Y - bushData[i].y - cameraY)
     }
 
     //Draw the nanonaut
