@@ -64,11 +64,17 @@
   function generateBushes() {
     var generatedBushData = []
     var bushX = 0
-    for (var i=0; i<10; i++) {
+    while (bushX < (2 * CANVAS_WIDTH)) {
+      var bushImage
+      if (Math.random() >= 0.5) {
+        bushImage = bush1Image
+      } else {
+        bushImage = bush2Image
+      }
       generatedBushData.push({
         x: bushX,
         y: 80 + Math.random() * 20,
-        image: bush1Image
+        image: bushImage
       })
       bushX += 150 + Math.random() * 200
     }
