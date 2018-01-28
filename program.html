@@ -48,7 +48,8 @@
   var cameraX = 0
   var cameraY = 0
 
-  var bushXCoordinates = [ 550, 750, 1000, 1200]
+  var bushXCoordinates = [ 550, 750, 1000, 1200 ]
+  var bushYCoordinates = [ 100, 80, 90, 85 ]
 
   window.addEventListener('keydown', onKeyDown)
   window.addEventListener('keyup', onKeyUp)
@@ -118,14 +119,14 @@
     c.drawImage(backgroundImage, backgroundX, -210)
     c.drawImage(backgroundImage, backgroundX + BACKGROUND_WIDTH, -210)
 
-    // Draw the bushes
-    for (var i=0; i<bushXCoordinates.length; i++) {
-      c.drawImage(bush1Image, bushXCoordinates[i] - cameraX, GROUND_Y - 100 - cameraY)
-    }
-
     //Draw the ground
     c.fillStyle = 'ForestGreen'
     c.fillRect(0, GROUND_Y - 40, CANVAS_WIDTH, CANVAS_HEIGHT - GROUND_Y + 40)
+
+    // Draw the bushes
+    for (var i=0; i<bushXCoordinates.length; i++) {
+      c.drawImage(bush1Image, bushXCoordinates[i] - cameraX, GROUND_Y - bushYCoordinates[i] - cameraY)
+    }
 
     //Draw the nanonaut
     var nanonautSpriteSheetRow = Math.floor(nanonautFrameNr / NANONAUT_NR_FRAMES_PER_ROW)
